@@ -1,9 +1,10 @@
 function sumarUno( numero ) {
 
+    console.log( numero );
     var promesa = new Promise( function ( resolve, reject ) {
-        // if ( numero >= 7) {
-        //     reject('El número es muy alto');
-        // }
+        if ( numero >= 7) {
+            reject('El número es muy alto');
+        }
         setTimeout( function() {
 
             resolve( numero + 1 );
@@ -21,4 +22,8 @@ sumarUno( 5 )
 .then( sumarUno )
 .then( nuevoNumero => {
     console.log( nuevoNumero );
+})
+.catch( error => {
+    console.log('ERROR EN PROMESA');
+    console.log(error);
 });
